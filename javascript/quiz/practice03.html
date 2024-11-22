@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <sytle>
+
+    </sytle>
+</head>
+
+<body>
+    <div>
+        <p>달식당 <span onclick=increaseCnt()>좋아요♡ </span><span id="cnt">0</span></p>
+    </div>
+
+    <script>
+        let cnt = 0;
+
+        function increaseCnt() {
+            cnt++;  //숫자 1씩 증가
+            document.getElementById('cnt').textContent = cnt;
+        }
+    </script>
+</body>
+
+</html>

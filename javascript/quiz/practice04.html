@@ -1,0 +1,203 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+        }
+
+        @keyframes boxAni1 {
+            0% {
+                background-color: blue;
+                margin-left: 20px;
+            }
+
+            25% {
+                background-color: orange;
+                margin-left: 120px;
+            }
+
+            50% {
+                background-color: pink;
+                margin-left: 220px;
+            }
+
+            75% {
+                background-color: orange;
+                margin-left: 120px;
+            }
+
+            100% {
+                background-color: blue;
+                margin-left: 20px;
+            }
+        }
+
+        @keyframes boxAni2 {
+            0% {
+                background-color: blue;
+                /* margin-top: 20px; */
+                top: 0;
+            }
+
+            50% {
+                background-color: orange;
+                /* margin-top: 120px; */
+                top: 100px;
+            }
+
+            100% {
+                background-color: pink;
+                /* margin-top: 220px; */
+                top: 200px;
+            }
+        }
+
+        @keyframes boxAni3 {
+            0% {
+                background-color: blue;
+                transform: translate(0, 0);
+                /* margin-top: 20px; */
+                /* top:0;
+                left:0; */
+            }
+
+            50% {
+                background-color: orange;
+                transform: translate(100px, 100px);
+                /* margin-top: 120px; */
+                /* top:100px;
+                left:100px; */
+            }
+
+            100% {
+                background-color: pink;
+                transform: translate(200px, 200px);
+                /* margin-top: 220px; */
+                /* top:200px;
+                left:200px; */
+            }
+        }
+
+        .ani1 {
+            animation-name: boxAni1;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+
+        .ani1:hover {
+            animation-play-state: paused;
+        }
+
+        .ani2 {
+            position: relative;
+            animation-name: boxAni2;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .ani2:hover {
+            animation-play-state: paused;
+        }
+
+        .ani3 {
+            position: relative;
+            animation-name: boxAni3;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .ani3:hover {
+            animation-play-state: paused;
+        }
+
+        .ani1:hover,
+        .ani2:hover,
+        .ani3:hover {
+            animation-play-state: paused;
+        }
+
+        .box:hover {
+            animation-play-state: paused;
+        }
+
+        .stopAnimation {
+            animation-play-state: paused;
+        }
+
+        .runningAnimation {
+            animation-play-state: running;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="playAnimation()">재생</button>
+    <button id="btn_stop">정지</button>
+
+    <div class="box ani1"></div>
+    <div class="box ani2"></div>
+    <div class="box ani3"></div>
+
+    <script>
+        //재생 기능
+        function playAnimation() {
+            /*
+            //스타일을 직접 적용하는 케이스
+            document.querySelector('.ani1').style.animationPlayState = 'running';
+            document.querySelector('.ani2').style.animationPlayState = 'running';
+            document.querySelector('.ani3').style.animationPlayState = 'running';
+            */
+
+
+            document.querySelector('.ani1').classList.remove('stopAnimation');
+            document.querySelector('.ani2').classList.remove('stopAnimation');
+            document.querySelector('.ani3').classList.remove('stopAnimation');
+            /*
+            document.querySelector('.ani1').classList.add('runningAnimation');
+            document.querySelector('.ani2').classList.add('runningAnimation');
+            document.querySelector('.ani3').classList.add('runningAnimation');
+            */
+        }
+
+        //정지 기능
+        document.getElementById('btn_stop').addEventListener('click', () => {
+            //스타일을 직접 적용하는 케이스
+            /*
+            let boxes = document.querySelectorAll('.box');
+            boxes[0].style.animationPlayState = 'paused';
+            boxes[1].style.animationPlayState = 'paused';
+            boxes[2].style.animationPlayState = 'paused';
+            */
+            // document.querySelectorAll('.box')[0].style.animationPlayState = 'paused';
+            // document.querySelectorAll('.box')[1].style.animationPlayState = 'paused';
+            // document.querySelectorAll('.box')[2].style.animationPlayState = 'paused';
+
+            /*
+            document.querySelector('.ani1').style.animationPlayState = 'paused';
+            document.querySelector('.ani2').style.animationPlayState = 'paused';
+            document.querySelector('.ani3').style.animationPlayState = 'paused';
+            */
+            document.querySelector('.ani1').classList.add('stopAnimation');
+            document.querySelector('.ani2').classList.add('stopAnimation');
+            document.querySelector('.ani3').classList.add('stopAnimation');
+
+        });
+    </script>
+</body>
+
+</html>
